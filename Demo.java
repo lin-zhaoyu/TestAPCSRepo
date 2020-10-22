@@ -13,6 +13,8 @@ public class Demo{
     int[]array5 = {13,14,15,19,22,23};
     int[][]w = {{},array1,array3,{},array5,array4};
     System.out.println(arrayDeepToString(w).replace("}, ","}, \n "));
+    System.out.println();
+    System.out.println(arrayDeepToString(create2DArray(6,2,3)).replace("}, ","}, \n "));
 
 }
   public static void printLoop(int n){
@@ -32,6 +34,7 @@ public class Demo{
     }
     return "{" + result + "}";
   }
+
   public static String arrayDeepToString(int[][]arr){
     String result = "";
     for(int i = 0; i < arr.length; i ++){
@@ -51,5 +54,20 @@ public class Demo{
     return "{" + result + "}";
   }
 
+  public static int[][] create2DArray(int rows, int cols,int maxValue){
+    int[][]arr  = new int[rows][cols];
+    int value = 0;
+    for(int i = 0; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                arr[i][j] = (int) (Math.random()* (maxValue+1));
+                value++;
+                if(value == maxValue+1){
+                  j = cols;
+                  value = 0;
+                }
+            }
+  }
+  return arr;
+  }
 
 }
