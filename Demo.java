@@ -6,15 +6,18 @@ public class Demo{
       int a = Integer.valueOf(args[0]);
       printLoop(a);
     }
-    int[]array1 = {1,2,3};
-    int[]array2 = {4,5,6,16};
-    int[]array3 = {7,8,9,17,20};
-    int[]array4 = {10,11,12,18,21};
-    int[]array5 = {13,14,15,19,22,23};
-    int[][]w = {{},array1,array3,{},array5,array4};
-    System.out.println(arrayDeepToString(w).replace("}, ","}, \n "));
-    System.out.println();
-    System.out.println(arrayDeepToString(create2DArray(6,2,3)).replace("}, ","}, \n "));
+    // int[]array1 = {1,2,3};
+    // int[]array2 = {4,5,6,16};
+    // int[]array3 = {7,8,9,17,20};
+    // int[]array4 = {10,11,12,18,21};
+    // int[]array5 = {13,14,15,19,22,23};
+    // int[][]w = {{},array1,array3,{},array5,array4};
+    // System.out.println(arrayDeepToString(w).replace("}, ","}, \n "));
+    // System.out.println();
+    // System.out.println(arrayDeepToString(create2DArray(6,2,3)).replace("}, ","}, \n "));
+    // System.out.println();
+    // System.out.println(arrayDeepToString(create2DArrayRandomized(4,10,100)).replace("}, ","}, \n "));
+
 
 }
   public static void printLoop(int n){
@@ -68,6 +71,18 @@ public class Demo{
             }
   }
   return arr;
+  }
+  public static int[][] create2DArrayRandomized(int rows, int cols,int maxValue){
+    int[][]arr = new int[rows][];
+    for(int i = 0; i< rows; i ++){
+      arr[i] = new int[(int) (Math.random()* (cols+1))];
+    }
+    for(int i = 0; i < rows; i++){
+            for(int j = 0; j < arr[i].length ; j++){
+                arr[i][j]  = (int) (Math.random()* maxValue+1);
+            }
+    }
+    return arr;
   }
 
 }
